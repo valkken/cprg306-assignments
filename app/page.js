@@ -7,7 +7,9 @@ export default function Home() {
       <Link href="/week-2" className="text-xl font-bold font-serif">Week 2 Assignment</Link>
       <br />
       <Link href="/week-3" className="text-xl font-bold font-serif">Week 3 Assignment</Link>
-
+      <br />
+      <Link href="/week-4" className="text-xl font-bold font-serif">Week 4 Assignment</Link>
+      <br />
     </main>
   );
 }
