@@ -88,8 +88,13 @@ export default function NewItem() {
             <option value="Dairy">Dairy</option>
             <option value="Bakery">Bakery</option>
             <option value="Meat">Meat</option>
-            <option value="Pantry">Pantry</option>
-            <option value="Frozen">Frozen</option>
+            <option value="Frozen Foods">Frozen Foods</option>
+            <option value="Canned Goods">Canned Goods</option>
+            <option value="Dry Goods">Dry Goods</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Household">Household</option>
+            <option value="Others">Others</option>
           </select>
         </div>
         {/* Submit Button */}
