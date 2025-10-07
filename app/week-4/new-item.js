@@ -25,10 +25,32 @@ export default function NewItem() {
 
 
     return (
-        <div className="flex justify-center items-center gap-3 bg-white p-3 rounded mx-auto w-40 h-15 shadow ">
-            <div className="text-black  bg-gray-300 h-10 flex items-center justify-center w-13 min-w-10 rounded ">{quantity}</div>
-            <button onClick={decrement} className={ quantity == 1 ? "bg-gray-200 font-bold text-black px-4 py-2 rounded-lg  cursor-not-allowed" : "bg-blue-500 font-bold text-black hover:bg-blue-950 active:bg-gray-700 px-4 py-2 rounded-lg "}>-</button>
-            <button onClick={increment} className={quantity == 20 ? "bg-gray-200 font-bold text-black px-4 py-2 rounded-lg cursor-not-allowed" : "bg-blue-500 font-bold text-black hover:bg-blue-950 active:bg-gray-700 px-4 py-2 rounded-lg"}>+</button>
-        </div>
+        <section className="flex flex-col justify-center items-center mt-5">
+         {/* Quantity Selector */}
+          <div className="flex items-center justify-center gap-3 bg-white p-2 w-40 rounded shadow">
+            <div className=" w-10 h-10 flex items-center justify-center text-black bg-white border-1  rounded ">
+              {quantity}
+            </div>
+            <button
+              type="button"
+              onClick={decrement}
+              className={`px-4 py-2 rounded font-bold text-white transition-colors
+                ${quantity == 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`
+              }
+            >
+              -
+            </button>
+            <button
+              type="button"
+              onClick={increment}
+              className={`px-4 py-2 rounded font-bold text-white transition-colors
+                ${quantity == 20 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`
+              }
+             
+            >
+              +
+            </button>
+          </div>
+        </section>
     );  
 }
