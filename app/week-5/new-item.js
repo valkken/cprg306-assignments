@@ -21,8 +21,8 @@ export default function NewItem() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    let shoppingList = { name, category, quantity };
-    console.log("Item added:", shoppingList);
+    let item = { name, category, quantity };
+    console.log("Item added:", item);
     alert(`Item added: ${name}, Category: ${category}, Quantity: ${quantity}`);
     //reset to initial values/state
     setName("");
@@ -31,10 +31,10 @@ export default function NewItem() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center gap-5 mt-20 bg-white p-4 rounded mx-auto w-80 shadow ">
-      {/* Start of Form */}
+    <section className="flex flex-col  justify-center items-center gap-5 mt-20 bg-white p-4 rounded mx-auto w-80 shadow ">
+      {/* form */}
       <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4 ">
-        {/* Item Name Input */}
+        {/* item name input */}
         <input
           type="text"
           id="name"
@@ -45,7 +45,7 @@ export default function NewItem() {
           className="border border-gray-400 text-black caret-black placeholder-gray-500 rounded px-2 py-1 w-full"
         />
 
-        {/* row with quantity selector (left) and category selector (right) */}
+        {/* row with quantity (left) and category selector (right) */}
 
         <div className="flex justify-between items-center gap-2">
           {/* Quantity Selector */}
@@ -97,6 +97,7 @@ export default function NewItem() {
             <option value="Others">Others</option>
           </select>
         </div>
+
         {/* Submit Button */}
         <button
           type="submit"
