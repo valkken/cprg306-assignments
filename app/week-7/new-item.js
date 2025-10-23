@@ -95,17 +95,17 @@ export default function NewItem({ onAddItem }) {
             onChange={(e) => setItem({ ...item, category: e.target.value })}
             className="border border-gray-400 text-black rounded px-2 py-1 w-36 h-10"
           >
-            <option value="Produce">Produce</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Bakery">Bakery</option>
-            <option value="Meat">Meat</option>
-            <option value="Frozen Foods">Frozen Foods</option>
-            <option value="Canned Goods">Canned Goods</option>
-            <option value="Dry Goods">Dry Goods</option>
-            <option value="Beverages">Beverages</option>
-            <option value="Snacks">Snacks</option>
-            <option value="Household">Household</option>
-            <option value="Others">Others</option>
+            <option value="produce">Produce</option>
+            <option value="dairy">Dairy</option>
+            <option value="bakery">Bakery</option>
+            <option value="meat">Meat</option>
+            <option value="frozen Foods">Frozen Foods</option>
+            <option value="canned Goods">Canned Goods</option>
+            <option value="dry Goods">Dry Goods</option>
+            <option value="beverages">Beverages</option>
+            <option value="snacks">Snacks</option>
+            <option value="household">Household</option>
+            <option value="others">Others</option>
           </select>
         </div>
 
