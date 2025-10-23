@@ -2,19 +2,25 @@
 import { useState } from "react";
 
 export default function NewItem({ onAddItem }) {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("Produce");
-  const [quantity, setQuantity] = useState(1);
+  // const [name, setName] = useState("");
+  // const [category, setCategory] = useState("Produce");
+  // const [quantity, setQuantity] = useState(1);
+  //combine states into a single state object
+  const [item, setItem] = useState({
+    name: "",
+    category: "Produce",
+    quantity: 1,
+  });
 
   const increment = () => {
-    if (quantity < 20) {
-      setQuantity(quantity + 1);
+    if (item.quantity < 20) {
+      setItem({ ...item, quantity: item.quantity + 1 });
     }
   };
 
   const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+    if (item.quantity > 1) {
+      setItem({ ...item, quantity: item.quantity - 1 });
     }
   };
 
@@ -22,15 +28,17 @@ export default function NewItem({ onAddItem }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = Date.now(); //simple unique id based on timestamp
-    let newItem = { id, name, category, quantity };
-    onAddItem(newItem);//pass the new item to the parent component
-    
-    
-    console.log("Item added:", item);
+    //create new item object with id
+    let newItem = { id, ...item };
+    onAddItem(newItem); //pass the new item to the parent component
+
+    console.log("Item added:", newItem);
     //reset to initial values/state
-    setName("");
-    setCategory("Produce");
-    setQuantity(1);
+    setItem({
+      name: "",
+      category: "Produce",
+      quantity: 1,
+    });
   };
 
   return (
@@ -41,8 +49,8 @@ export default function NewItem({ onAddItem }) {
         <input
           type="text"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={item.name}
+          onChange={(e) => setItem({ ...item, name: e.target.value })}
           placeholder="Item Name"
           required
           className="border border-gray-400 text-black caret-black placeholder-gray-500 rounded px-2 py-1 w-full"
@@ -54,14 +62,14 @@ export default function NewItem({ onAddItem }) {
           {/* Quantity Selector */}
 
           <div className=" w-12 h-10 flex font-extrabold items-center justify-center text-black bg-white border border-gray-400  rounded ">
-            {quantity}
+            {item.quantity}
           </div>
           <button
             type="button"
             onClick={decrement}
             className={`px-4 py-2 rounded font-bold text-white transition-colors
                 ${
-                  quantity == 1
+                  item.quantity == 1
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-blue-500 hover:text-black hover:bg-blue-600 active:bg-blue-800 transition-colors"
                 }`}
@@ -73,7 +81,7 @@ export default function NewItem({ onAddItem }) {
             onClick={increment}
             className={`px-4 py-2 rounded font-bold text-white transition-colors
                 ${
-                  quantity == 20
+                  item.quantity == 20
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-blue-500 hover:text-black hover:bg-blue-600 active:bg-blue-800 transition-colors"
                 }`}
@@ -83,8 +91,8 @@ export default function NewItem({ onAddItem }) {
 
           <select
             id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={item.category}
+            onChange={(e) => setItem({ ...item, category: e.target.value })}
             className="border border-gray-400 text-black rounded px-2 py-1 w-36 h-10"
           >
             <option value="Produce">Produce</option>
