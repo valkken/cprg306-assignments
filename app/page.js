@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Home() {
-  const weeks = [2, 3, 4, 5, 6, 7, 8];
+  const weeks = [2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <main>
       <h1 className="font-extrabold text-3xl font-serif">
@@ -15,6 +15,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      
     </main>
   );
 }
